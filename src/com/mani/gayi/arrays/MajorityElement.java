@@ -4,8 +4,8 @@ package com.mani.gayi.arrays;
  * Author: Mani,
  * Problem: A majority element in an array A[] of size n is an element that appears more than n/2 times (and hence there is at most one such element).,
  * Source: http://www.geeksforgeeks.org/majority-element/
- * 
- * */
+ * Solution using :Moores Voting Algorithm
+ */
 
 public class MajorityElement {
 
