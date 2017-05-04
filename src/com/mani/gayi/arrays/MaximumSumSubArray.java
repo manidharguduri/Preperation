@@ -47,8 +47,12 @@ public class MaximumSumSubArray {
 	public static void main(String[] args) {
 
 		int[] data = { 1, -5, 3, 2, -4, 9 };
+		
+		int[] data1 = { 1, -5, -3, 2, -4, 9,-8,7 };
 
-		Result result = maxSumSubArrayUsing3ForLoops(data);
+	//	Result result = maxSumSubArrayUsing3ForLoops(data);
+		
+		Result result = maxSumSubArrayUsing2ForLoops(data1);
 
 		System.out.println("Sub array starts at :" + result.getStartindex() + " and ends at :" + result.getEndindex());
 		System.out.println("Final Sub Array Sum :" + result.result);
@@ -61,8 +65,8 @@ public class MaximumSumSubArray {
 		Result result = new Result();
 
 		// iterate for all sub array sizes...
-		for (int subArraySize = 0; subArraySize < data.length; subArraySize++) {
-			
+		for (int subArraySize = 1; subArraySize < data.length; subArraySize++) {
+
 			// variable which denotes the starting index of the sub array.
 			for (int startIndex = 0; startIndex < data.length; startIndex++) {
 
@@ -94,6 +98,42 @@ public class MaximumSumSubArray {
 
 		return result;
 
+	}
+
+	private static Result maxSumSubArrayUsing2ForLoops(int[] data) {
+		// we will optimize based on the previous result.
+
+		Result result = new Result();
+
+		// starting index.
+		for (int startIndex = 0; startIndex < data.length; startIndex++) {
+
+			// stores the sum.
+			int sum = 0;
+
+			// sub array size...
+			for (int subArraySize = 1; subArraySize < data.length; subArraySize++) {
+				
+				
+				// skip the elements that are not present.
+				if (subArraySize + startIndex > data.length) {
+					break;
+				}
+				result.setEndindex(startIndex + subArraySize - 1);
+				sum = data[startIndex + subArraySize - 1] + sum;
+
+			}
+
+			// storing the sub array indexes...
+			if (result.getResult() < sum) {
+				result.setStartindex(startIndex);
+
+			}
+
+			result.setResult(Math.max(result.getResult(), sum));
+		}
+
+		return result;
 	}
 
 }
