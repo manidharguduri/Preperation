@@ -1,7 +1,6 @@
 package com.manin.gayi.trees;
 
 public class CheckBST {
-
 	
 	/*
 	 * Author:	Mani
