@@ -63,6 +63,7 @@ public class PrecedorSuccesorOfBST {
 		
 	}
 	
+	// Node Structure...
 	private static class Node
 	{
 		int key;
@@ -90,8 +91,6 @@ public class PrecedorSuccesorOfBST {
 		public void setRight(Node right) {
 			this.right = right;
 		}
-		
-		
 	}
 	
 	Node root = null;
